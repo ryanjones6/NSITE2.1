@@ -1,0 +1,1126 @@
+[
+  {
+    "device": "XL7",
+    "register_id": "XL71029_1",
+    "alias": "Shunt Status",
+    "type": "log",
+    "group": "default",
+    "uuid": "c2f64dc9-d5bf-4f26-ad53-294b04759248",
+    "event": {
+      "comparison": "equal",
+      "value": "BYPASS ",
+      "readingsValue": "value",
+      "clearDuration": 1000,
+      "message": "The shunt is now in bypass",
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_1",
+    "alias": "TECH CAMLOCK PHASE  [ A - OVER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "7d4c40bb-bebc-439a-be0c-4a651203288d",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_2",
+    "alias": "TECH CAMLOCK PHASE  [ B - OVER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "bcc9946c-2528-4b62-8ee1-7590b827c44d",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_3",
+    "alias": "TECH CAMLOCK PHASE  [ C - OVER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "9b53a7d2-a7b3-4a19-a55a-d3be380127f0",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_4",
+    "alias": "TECH CAMLOCK PHASE  [ A - UNDER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "2d1d187b-417a-4aa4-88d9-c973742424ad",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_5",
+    "alias": "TECH CAMLOCK PHASE  [ B - UNDER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "518efadd-b8cb-45fa-a9bf-e5a0cdf8de0d",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_6",
+    "alias": "TECH CAMLOCK PHASE  [ C - UNDER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "e1009218-e016-4064-a6f6-688d3ba0d24e",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_7",
+    "alias": "TECH CAMLOCK PHASE  [ REVERSED ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "39ef5bc7-5e2b-4452-ad4e-70b68ca44162",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_8",
+    "alias": "HVAC CAMLOCK PHASE  [ A - OVER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "07c3bb21-b537-43cb-9ebd-a72b5e377f77",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_9",
+    "alias": "HVAC CAMLOCK PHASE  [ B - OVER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "d7693bca-e248-4467-b600-b513ca4e3900",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_10",
+    "alias": "HVAC CAMLOCK PHASE  [ C - OVER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "3da6069d-f1cd-4898-8f21-1d13d99d1d1d",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_11",
+    "alias": "HVAC CAMLOCK PHASE  [ A - UNDER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "fa3f0fb9-f051-44f3-a7c5-76f21d8910dd",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_12",
+    "alias": "HVAC CAMLOCK PHASE  [ B - UNDER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "05b57fff-f43f-44d2-9541-3bc9a75a78f0",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_13",
+    "alias": "HVAC CAMLOCK PHASE  [ C - UNDER VOLTAGE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "01c9c34d-e7ab-4dc9-94ee-709255056109",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_14",
+    "alias": "HVAC CAMLOCK PHASE  [ REVERSED ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "11e9326a-05ff-4841-ba26-94806790b7f8",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_15",
+    "alias": "TECH SHUNT ACTIVATED!",
+    "type": "notification",
+    "group": "default",
+    "uuid": "aec8beca-2eaf-46aa-93ca-6651df6277e7",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_15",
+    "alias": "TECH SHUNT ACTIVATED!",
+    "type": "email",
+    "group": "default",
+    "uuid": "d2f6e89e-64ba-4d9e-8375-3c464953df45",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_16",
+    "alias": "HVAC SHUNT ACTIVATED!",
+    "type": "notification",
+    "group": "default",
+    "uuid": "2a376c1f-f27b-4ceb-b96a-b5b2e359724e",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71067_16",
+    "alias": "HVAC SHUNT ACTIVATED!",
+    "type": "email",
+    "group": "default",
+    "uuid": "1ff92c60-c0f1-4893-b221-709ba55e9f89",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_1",
+    "alias": "ACM  OFFLINE [ TECH ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "2ef638ea-7fa2-4889-9c73-c71fe5122988",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_2",
+    "alias": "ACM OFFLINE [ HVAC ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "0b8985e4-e102-48a7-8268-b5c3ca26ad13",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_3",
+    "alias": "IN TRUCK HIGH TEMP ALERT",
+    "type": "notification",
+    "group": "default",
+    "uuid": "5305b810-7f5b-43c8-9071-9d44e847f7d7",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_3",
+    "alias": "IN TRUCK HIGH TEMP ALERT",
+    "type": "email",
+    "group": "default",
+    "uuid": "8279c99c-fc87-488f-af8a-e87063c5870c",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "eventTag": [
+        "temp sensor"
+      ],
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_4",
+    "alias": "DEAD BUS [ TECH CAMLOCKS ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "36f0e3cd-3926-4627-ac59-6a333d0f53f0",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_5",
+    "alias": "DEAD BUS [ HVAC CAMLOCKS ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "40e049a8-384c-49ad-90c2-500e618f1695",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_6",
+    "alias": "ENVIRO ALERT [ ACTIVATED ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "a2c24066-08c6-4bdc-aeb6-109b016213c9",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_7",
+    "alias": "IMBALANCED LOAD [ TECH CAMLOCKS ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "58b169a9-326a-4b20-ad24-4be240b701d9",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_8",
+    "alias": "IMBALANCED LOAD [ TECH SECONDARY ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "b71ee044-0ccd-4694-850c-49eefae8445a",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_9",
+    "alias": "SET BREAKER LIMIT REACHED  [ TECH MAIN BREAKER ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "35391033-5358-4bf2-87c4-2d766eb92d46",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_9",
+    "alias": "SET BREAKER LIMIT REACHED  [ TECH MAIN BREAKER ]",
+    "type": "email",
+    "group": "default",
+    "uuid": "a78ccc0a-a620-48d7-b278-a6f84caae04c",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "eventTag": [
+        "tech power"
+      ],
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_10",
+    "alias": "SET BREAKER LIMIT REACHED  [ HVAC MAIN BREAKER ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "7672c30b-f39e-4854-a128-94eeb55a121a",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_10",
+    "alias": "SET BREAKER LIMIT REACHED  [ HVAC MAIN BREAKER ]",
+    "type": "email",
+    "group": "default",
+    "uuid": "6046be19-8e7c-490e-89a7-b9bc80b9d489",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "eventTag": [
+        "hvac power"
+      ],
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_11",
+    "alias": "SURGE SUPPRESSOR  [ OFF ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "0272e2d5-b7b1-4154-b7dc-51f209e4f5fc",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_12",
+    "alias": "POWER SYSTEM HIGH TEMP [ EXTERNAL ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "7ea168ec-eb47-45e0-be3e-ecb90aa5ebca",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_12",
+    "alias": "POWER SYSTEM HIGH TEMP [ EXTERNAL ]",
+    "type": "email",
+    "group": "default",
+    "uuid": "9a938162-aded-428a-91c1-aed85eede7a0",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "eventTag": [
+        "power temp"
+      ],
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_13",
+    "alias": "POWER SYSTEM HIGH TEMP [ INTERNAL ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "99394b36-6cd5-42a3-ae0d-f406d1744fc3",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_13",
+    "alias": "POWER SYSTEM HIGH TEMP [ INTERNAL ]",
+    "type": "email",
+    "group": "default",
+    "uuid": "8b1dbd33-9260-4987-860a-cd3df0b3ba2b",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "eventTag": [
+        "power temp"
+      ],
+      "level": "info"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_14",
+    "alias": "SHUNT TRIP FAILURE [ TECH ] - CONTACT THE SHOP ASAP!",
+    "type": "notification",
+    "group": "default",
+    "uuid": "f5248953-b587-474a-bc09-50d25e53b884",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_14",
+    "alias": "SHUNT TRIP FAILURE [ TECH ] - CONTACT THE SHOP ASAP!",
+    "type": "email",
+    "group": "default",
+    "uuid": "065ed102-afe9-410f-ab8b-c4be9e1aa3e8",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_15",
+    "alias": "SHUNT TRIP FAILURE [ HVAC ] - CONTACT THE SHOP ASAP!",
+    "type": "notification",
+    "group": "default",
+    "uuid": "73b90ff4-5088-4066-ad96-bac83eec4eb1",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_15",
+    "alias": "SHUNT TRIP FAILURE [ HVAC ] - CONTACT THE SHOP ASAP!",
+    "type": "email",
+    "group": "default",
+    "uuid": "3c1746ed-95cf-4914-9d5e-c948d683cc43",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71068_16",
+    "alias": "POWER SYSTEM EXHAUST DOOR [ CLOSED ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "3f8390ec-80a1-40f4-9550-7ec08705640a",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_1",
+    "alias": "BACK-UP ACM CONFIG SENT [ TECH ACM ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "10339577-7619-4b1e-a61d-72835a085884",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_2",
+    "alias": "BACK-UP ACM CONFIG SENT [ HVAC ACM ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "8cfe7eb4-55b1-4281-a794-ba529d0115df",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_5",
+    "alias": "RCX OFFLINE",
+    "type": "notification",
+    "group": "default",
+    "uuid": "19e980be-294e-4ff7-bdeb-b0f7196f23fa",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_6",
+    "alias": "TECH 24VDC POWER SUPPLY FAILURE (DCPS-2)",
+    "type": "notification",
+    "group": "default",
+    "uuid": "de0d635f-3278-4494-b403-46e1321795c2",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_7",
+    "alias": "TECH 24VDC ORING REDUNDENCY FAILURE",
+    "type": "notification",
+    "group": "default",
+    "uuid": "8e828c84-4220-4088-be3c-8c4a0d961e7a",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_8",
+    "alias": "BATTERY BACKUP 24VDC FAILURE (DCPS-3)",
+    "type": "notification",
+    "group": "default",
+    "uuid": "093dbc80-091a-40ce-b761-7ab5d4d690f9",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_9",
+    "alias": "EMERGENCY KILLSWITCH ACTIVATION",
+    "type": "notification",
+    "group": "default",
+    "uuid": "1f0d5153-2906-4f90-b49d-c9ccdfa8f288",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "error"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_9",
+    "alias": "EMERGENCY KILLSWITCH ACTIVATION",
+    "type": "email",
+    "group": "default",
+    "uuid": "da1e41c1-0bcc-4d17-ae8d-63d3014b0a3f",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "eventTag": [
+        "tech power"
+      ],
+      "level": "info"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_10",
+    "alias": "HVAC 24VDC POWER SUPPLY FAILURE (DCPS-1)",
+    "type": "notification",
+    "group": "default",
+    "uuid": "27de0e9b-6328-44a7-b745-5a5f817045f9",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_11",
+    "alias": "HVAC 24VDC ORING REDUNDENCY FAILURE",
+    "type": "notification",
+    "group": "default",
+    "uuid": "c5acf086-2958-44e3-9444-adf7915903e6",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "XL7",
+    "register_id": "XL71069_12",
+    "alias": "RCX LOGGING STOPPED",
+    "type": "notification",
+    "group": "default",
+    "uuid": "0a364b81-233c-4e4e-a4a2-a3ead2e8c6dd",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "warning"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_1",
+    "alias": "LOSS OF CAN COMMUNICATION [ NSITE ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "1f3ba966-3183-4d34-ab59-159ba5edb329",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_2",
+    "alias": "LOSS OF CAN COMMUNICATION [ HVAC ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "5e35b6fb-15ab-49f8-a22d-5c68a484ab10",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_3",
+    "alias": "NSITE SMARTRAIL ERROR",
+    "type": "notification",
+    "group": "default",
+    "uuid": "cc682a0f-c317-4925-b7ee-a0a388e9e1f9",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_4",
+    "alias": "ERROR [ SENSOR 1 ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "063905f9-40f5-4a65-95a9-e851cc942595",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_5",
+    "alias": "ERROR [ SENSOR 2 ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "c165f594-dde1-4333-b6de-9f907698f9e8",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_6",
+    "alias": "ERROR [ SENSOR 3 ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "cc11294d-7008-4995-9e37-33e543b39e95",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_7",
+    "alias": "ERROR [ SENSOR 4 ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "ece12b9b-f5a6-40bd-8006-a462f0ac2b10",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "X5",
+    "register_id": "X59_8",
+    "alias": "SENSOR ERROR [ HVAC RETURN ]",
+    "type": "notification",
+    "group": "default",
+    "uuid": "815bf9dd-3b4c-4d5d-88a8-af1acf6d4329",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "HVAC",
+    "register_id": "HVAC500_1",
+    "alias": "HVAC SYSTEM-1 ERROR",
+    "type": "notification",
+    "group": "default",
+    "uuid": "f80520f0-a4ca-4015-bd6f-6540c1ebfeca",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "HVAC",
+    "register_id": "HVAC500_2",
+    "alias": "HVAC SYSTEM-2 ERROR",
+    "type": "notification",
+    "group": "default",
+    "uuid": "0ebf3a0c-b2aa-4423-8a72-35a41fc881d8",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "HVAC",
+    "register_id": "HVAC500_3",
+    "alias": "HVAC SYSTEM-3 ERROR",
+    "type": "notification",
+    "group": "default",
+    "uuid": "5551068f-628a-4042-b3ac-2e00db4b7fa7",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  },
+  {
+    "device": "HVAC",
+    "register_id": "HVAC500_4",
+    "alias": "HVAC SYSTEM-4 ERROR",
+    "type": "notification",
+    "group": "default",
+    "uuid": "3a258ad0-2bb2-40c0-8af1-4558ef37785c",
+    "event": {
+      "comparison": "equal",
+      "value": 1,
+      "readingsValue": "rawValue",
+      "clearDuration": 600000,
+      "source": "emitter",
+      "options": {},
+      "level": "info"
+    }
+  }
+]

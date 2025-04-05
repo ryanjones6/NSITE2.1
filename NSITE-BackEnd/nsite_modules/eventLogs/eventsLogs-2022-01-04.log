@@ -1,0 +1,6 @@
+{"application":"NSITE","facility":"init","level":"info","message":"this is info","timestamp":"04-01-2022 07:02:14"}
+{"application":"NSITE","facility":"init","level":"warn","message":"this is warning","timestamp":"04-01-2022 07:02:14"}
+{"application":"NSITE","facility":"init","level":"error","message":"this is error","timestamp":"04-01-2022 07:02:14"}
+{"application":"NSITE","facility":"init","level":"info","message":"this is info","timestamp":"04-01-2022 07:03:45"}
+{"application":"NSITE","facility":"init","level":"warn","message":"this is warning","timestamp":"04-01-2022 07:03:45"}
+{"application":"NSITE","facility":"init","level":"error","message":"this is error","timestamp":"04-01-2022 07:03:45"}

@@ -1,0 +1,4436 @@
+{
+	"server": {
+		"facility": "SS5",
+		"webAppPort": 80,
+		"broker":1883,
+		"snapshotDays":3,
+		"influxDB":{
+			"host": "localhost",
+			"database": "NSITE",
+			"port":8086,
+			"retentionPolicy":{
+				"name":"NSITE-RP",
+				"duration":"3d",
+				"replication": 1,
+				"isDefault": true
+			}
+		},
+		"ftp":{
+			"power_logs":[{
+				"name":"RCX",
+				"host":"10.212.10.207"
+			}],
+			"alarms":[{
+				"name":"XL7",
+				"host":"10.212.10.201",
+				"user":"admin",
+				"pass":"admin"
+			},{
+				"name":"X5",
+				"host":"10.212.10.209",
+				"user":"admin",
+				"pass":"admin"
+			},{
+				"name":"HVAC",
+				"host":"10.212.10.209",
+				"user":"admin",
+				"pass":"admin"
+			}]
+			
+		}
+	},
+	"modbusDevice": [{
+		"name": "XL7",
+		"host": "10.212.10.201",
+		"port": 502,
+		"socketTimeout": 4000,
+		"onEndTimeout": 1000,
+		"onErrorTimeout": 3000,
+		"requestInterval": 1000,
+		"modbusCommand": "readHoldingRegisters",
+		"regOffset": 3000,
+		"zeroBase": true,
+		"registers": [{
+				"PLC": {
+					"name": "ACM1c1_AB_Voltage",
+					"register": 1001,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerPriV",
+					"displayOrder": 1,
+					"name": "A/B Volts",
+					"style": "boxtitle aphase-under",
+					"alias":"Tech Primary A/B Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c1_BC_Voltage",
+					"register": 1002,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerPriV",
+					"displayOrder": 2,
+					"name": "B/C Volts",
+					"style": "boxtitle bphase-under",
+					"alias":"Tech Primary B/C Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c1_CA_Voltage",
+					"register": 1003,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerPriV",
+					"displayOrder": 3,
+					"name": "C/A Volts",
+					"style": "boxtitle cphase-under",
+					"alias":"Tech Primary C/A Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c1_A_Current",
+					"register": 1004,
+					"tag": ["tech power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerPriC",
+					"displayOrder": 1,
+					"name": "A - Amps",
+					"style": "boxtitle aphase-under",
+					"alias":"Tech Primary A-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c1_B_Current",
+					"register": 1005,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerPriC",
+					"displayOrder": 2,
+					"name": "B - Amps",
+					"style": "boxtitle bphase-under",
+					"alias":"Tech Primary B-Amps"
+
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c1_C_Current",
+					"register": 1006,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerPriC",
+					"displayOrder": 3,
+					"name": "C - Amps",
+					"style": "boxtitle cphase-under",
+					"alias":"Tech Primary C-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c2_AN_Voltage",
+					"register": 1007,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerSecV",
+					"displayOrder": 1,
+					"name": "A/N Volts",
+					"style": "boxtitle aphase-under",
+					"alias":"Tech Secondary A/N Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c2_BN_Voltage",
+					"register": 1008,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerSecV",
+					"displayOrder": 2,
+					"name": "B/N Volts",
+					"style": "boxtitle bphase-under",
+					"alias":"Tech Secondary B/N Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c2_CN_Voltage",
+					"register": 1009,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerSecV",
+					"displayOrder": 3,
+					"name": "C/N Volts",
+					"style": "boxtitle cphase-under",
+					"alias":"Tech Secondary C/N Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c2_A_Current",
+					"register": 1010,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerSecC",
+					"displayOrder": 1,
+					"name": "A - Amps",
+					"style": "boxtitle aphase-under",
+					"alias":"Tech Secondary A-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c2_B_Current",
+					"register": 1011,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerSecC",
+					"displayOrder": 2,
+					"name": "B - Amps",
+					"style": "boxtitle bphase-under",
+					"alias":"Tech Secondary B-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c2_C_Current",
+					"register": 1012,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerSecC",
+					"displayOrder": 3,
+					"name": "C - Amps",
+					"style": "boxtitle cphase-under",
+					"alias":"Tech Secondary C-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c1_AB_Voltage",
+					"register": 1013,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerPriV",
+					"displayOrder": 1,
+					"name": "A/B Volts",
+					"style": "boxtitle aphase-under",
+					"alias":"HVAC Primary A/B Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c1_BC_Voltage",
+					"register": 1014,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerPriV",
+					"displayOrder": 2,
+					"name": "B/C Volts",
+					"style": "boxtitle bphase-under",
+					"alias":"HVAC Primary B/C Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c1_CA_Voltage",
+					"register": 1015,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerPriV",
+					"displayOrder": 3,
+					"name": "C/A Volts",
+					"style": "boxtitle cphase-under",
+					"alias":"HVAC Primary C/A Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c1_A_Current",
+					"register": 1016,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerPriC",
+					"displayOrder": 1,
+					"name": "A - Amps",
+					"style": "boxtitle aphase-under",
+					"alias":"HVAC Primary A-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c1_B_Current",
+					"register": 1017,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerPriC",
+					"displayOrder": 2,
+					"name": "B - Amps",
+					"style": "boxtitle bphase-under",
+					"alias":"HVAC Primary B-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c1_C_Current",
+					"register": 1018,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerPriC",
+					"displayOrder": 3,
+					"name": "C - Amps",
+					"style": "boxtitle cphase-under",
+					"alias":"HVAC Primary C-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c2_AB_Voltage",
+					"register": 1019,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerSecV",
+					"displayOrder": 1,
+					"name": "A/B Volts",
+					"style": "boxtitle aphase-under",
+					"alias":"HVAC Secondary A/B Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c2_BC_Voltage",
+					"register": 1020,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerSecV",
+					"displayOrder": 2,
+					"name": "B/C Volts",
+					"style": "boxtitle bphase-under",
+					"alias":"HVAC Secondary B/C Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c2_CA_Voltage",
+					"register": 1021,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerSecV",
+					"displayOrder": 3,
+					"name": "C/A Volts",
+					"style": "boxtitle cphase-under",
+					"alias":"HVAC Secondary C/A Volts"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c2_A_Current",
+					"register": 1022,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerSecC",
+					"displayOrder": 1,
+					"name": "A - Amps",
+					"style": "boxtitle aphase-under",
+					"alias":"HVAC Secondary A-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c2_B_Current",
+					"register": 1023,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerSecC",
+					"displayOrder": 2,
+					"name": "B - Amps",
+					"style": "boxtitle bphase-under",
+					"alias":"HVAC Secondary B-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c2_B_Current",
+					"register": 1024,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerSecC",
+					"displayOrder": 3,
+					"name": "C - Amps",
+					"style": "boxtitle cphase-under",
+					"alias":"HVAC Secondary C-Amps"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM1c1_Frequency",
+					"register": 1025,
+					"tag": ["tech power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "techPowerOther",
+					"displayOrder": 1,
+					"name": "Frequency",
+					"style": "boxtitle freq-under",
+					"class":"xs4",
+					"alias":"Tech Power Frequency"
+				}
+			}, {
+				"PLC": {
+					"name": "ACM2c1_Frequency",
+					"register": 1026,
+					"tag": ["hvac power", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerOther",
+					"displayOrder": 1,
+					"name": "Frequency",
+					"style": "boxtitle freq-under",
+					"alias":"HVAC Power Frequency"
+				}
+			}, {
+				"PLC": {
+					"name": "OCS_RTD_Input_1",
+					"register": 1027,
+					"tag": ["power temp", "power", "temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerOther",
+					"displayOrder": 2,
+					"name": "EXT-Temp",
+					"style": "boxtitle"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "OCS_RTD_Input_2",
+					"register": 1028,
+					"tag": ["power temp", "power"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacPowerOther",
+					"displayOrder": 3,
+					"name": "INT-Temp",
+					"style": "boxtitle"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+				,
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "Shunt Status",
+					"register": 1029,
+					"tag": ["tech power", "power"],
+					"binary": [{
+						"bit": 1,
+						"VIEW": {
+							"group": "techPowerOther",
+							"displayOrder": 2,
+							"name": "Shunt Switch State",
+							"alias":"Shunt Status",
+							"style": "boxtitle shunt",
+							"class":"xs8",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "BYPASS",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "24px"
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "Normal",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "BYPASS",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "log",
+							"group": "default",
+							"comparison": "equal",
+							"value": "BYPASS ",
+							"clearDuration": 1000,
+							"message":"The shunt is now in bypass",
+							"options":{
+								
+							}
+						}]
+					}]
+				}
+			}, {
+				"PLC": {
+					"name": "closure sensors",
+					"register": 1030,
+					"tag": ["closure"],
+					"binary": [{
+						"bit": 1,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 1,
+							"name": "Rec/Replay Door",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 3,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 3,
+							"name": "Audio Door",
+							"style": "boxvalue closurevalue",
+							"min": null,
+							"max": null
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 4,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 4,
+							"name": "Audio Access CS",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 5,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 5,
+							"name": "Audio Access SS",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 6,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 6,
+							"name": "R/R Access 01",
+							"style": "boxvalue closurevalue"
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 7,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 7,
+							"name": "R/R Access 02",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 8,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 8,
+							"name": "R/R Access 03",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 9,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 9,
+							"name": "XSM Access 04",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 10,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 10,
+							"name": "XSM Access 05",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 11,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 11,
+							"name": "XSM Access 06",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 12,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 12,
+							"name": "XSM Access 07",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 13,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": -1,
+							"name": "Power Bay Door",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}, {
+						"bit": 14,
+						"VIEW": {
+							"group": "closure",
+							"displayOrder": 14,
+							"name": "WOW Monitor Door",
+							"style": "boxvalue closurevalue",
+							"rule": {
+								"value": [{
+									"readingsValue": "value",
+									"comparison": "equal",
+									"value": "OPEN",
+									"css": {
+									  "color": "rgba(255, 59, 59, 0.7)",
+									  "font-size": "16px"
+
+									}
+								}]
+							}
+						},
+						"MASK": [{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "CLOSED",
+							"action": "replace"
+						}, {
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "OPEN",
+							"action": "replace"
+						}]
+					}]
+				},
+				"VIEW": {
+					"group": "binary",
+					"displayOrder": 1,
+					"name": "A/B Volts",
+					"style": "infoBox A-Phase",
+					"format": "&deg"
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1031,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 1,
+					"name": "Audio Room",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1032,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 2,
+					"name": "Production Room",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1033,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 3,
+					"name": "Rec/Replay Room",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1034,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 4,
+					"name": "Noise Room",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1035,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 5,
+					"name": "Rack - 01",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1036,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 6,
+					"name": "Rack - 03",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1037,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 7,
+					"name": "Audio Bridge",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1038,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 8,
+					"name": "Rack - 06",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1039,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 9,
+					"name": "Prod Wall (Left)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1040,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 10,
+					"name": "Prod Wall (Right)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1041,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 11,
+					"name": "Rack - 09 (upper)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1042,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 12,
+					"name": "Rack - 11 (upper)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1043,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 13,
+					"name": "TRack - 13 (upper)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1044,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 14,
+					"name": "Rack - 08 (lower)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1045,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 15,
+					"name": "Rack - 10 (lower)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1046,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 16,
+					"name": "Rack - 12 (lower)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1047,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 17,
+					"name": "Rack - 14",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1048,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 18,
+					"name": "Rack - 16",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1049,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 19,
+					"name": "Rack - 18",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1050,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 20,
+					"name": "Rack - 19",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1051,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 21,
+					"name": "Rack - 20",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1052,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 22,
+					"name": "Rack - 21",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1053,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 23,
+					"name": "Rack - 25 (upper)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1054,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 24,
+					"name": "Rack - 26 (upper)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1055,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 25,
+					"name": "Rack - 27 (upper)",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1056,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 26,
+					"name": "Rack - 23",
+					"style": "boxvalue temperature",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1057
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1058
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1059
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1060
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1061
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1062
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1063
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1064
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1065
+				}
+			}, {
+				"PLC": {
+					"name": "RTD",
+					"register": 1066
+				}
+			}, {
+				"PLC": {
+					"name": "Alarm1",
+					"register": 1067,
+					"tag": ["alarm"],
+					"binary": [{
+						"bit": 1,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH CAMLOCK PHASE  [ A - OVER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 1,
+							"name": "TECH CAMLOCK PHASE  [ A - OVER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 2,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH CAMLOCK PHASE  [ B - OVER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 2,
+							"name": "TECH CAMLOCK PHASE  [ B - OVER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 3,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH CAMLOCK PHASE  [ C - OVER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 3,
+							"name": "TECH CAMLOCK PHASE  [ C - OVER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 4,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH CAMLOCK PHASE  [ A - UNDER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 4,
+							"name": "TECH CAMLOCK PHASE  [ A - UNDER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 5,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH CAMLOCK PHASE  [ B - UNDER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 5,
+							"name": "TECH CAMLOCK PHASE  [ B - UNDER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 6,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH CAMLOCK PHASE  [ C - UNDER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 6,
+							"name": "TECH CAMLOCK PHASE  [ C - UNDER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 7,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH CAMLOCK PHASE  [ REVERSED ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 7,
+							"name": "TECH CAMLOCK PHASE  [ REVERSED ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 8,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC CAMLOCK PHASE  [ A - OVER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 8,
+							"name": "HVAC CAMLOCK PHASE  [ A - OVER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 9,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC CAMLOCK PHASE  [ B - OVER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 9,
+							"name": "HVAC CAMLOCK PHASE  [ B - OVER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 10,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC CAMLOCK PHASE  [ C - OVER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 10,
+							"name": "HVAC CAMLOCK PHASE  [ C - OVER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 11,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC CAMLOCK PHASE  [ A - UNDER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 11,
+							"name": "HVAC CAMLOCK PHASE  [ A - UNDER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 12,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC CAMLOCK PHASE  [ B - UNDER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 12,
+							"name": "HVAC CAMLOCK PHASE  [ B - UNDER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 13,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC CAMLOCK PHASE  [ C - UNDER VOLTAGE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 13,
+							"name": "HVAC CAMLOCK PHASE  [ C - UNDER VOLTAGE ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 14,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC CAMLOCK PHASE  [ REVERSED ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 14,
+							"name": "HVAC CAMLOCK PHASE  [ REVERSED ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 15,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH SHUNT ACTIVATED!",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}, {
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 15,
+							"name": "TECH SHUNT ACTIVATED!",
+							"style":"error"
+						}
+					}, {
+						"bit": 16,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC SHUNT ACTIVATED!",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}, {
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 16,
+							"name": "HVAC SHUNT ACTIVATED!",
+							"style":"error"
+						}
+					}]
+				}
+			}, {
+				"PLC": {
+					"name": "Alarm2",
+					"register": 1068,
+					"tag": ["alarm"],
+					"binary": [{
+						"bit": 1,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "ACM  OFFLINE [ TECH ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 17,
+							"name": "ACM  OFFLINE [ TECH ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 2,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "ACM OFFLINE [ HVAC ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 18,
+							"name": "ACM OFFLINE [ HVAC ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 3,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "IN TRUCK HIGH TEMP ALERT",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}, {
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning",
+							"eventTag": ["temp sensor"]
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 19,
+							"name": "IN TRUCK HIGH TEMP ALERT",
+							"style":"warning"
+						}
+					}, {
+						"bit": 4,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "DEAD BUS [ TECH CAMLOCKS ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 20,
+							"name": "DEAD BUS [ TECH CAMLOCKS ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 5,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "DEAD BUS [ HVAC CAMLOCKS ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 21,
+							"name": "DEAD BUS [ HVAC CAMLOCKS ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 6,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "ENVIRO ALERT [ ACTIVATED ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 22,
+							"name": "ENVIRO ALERT [ ACTIVATED ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 7,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "IMBALANCED LOAD [ TECH CAMLOCKS ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 23,
+							"name": "IMBALANCED LOAD [ TECH CAMLOCKS ]",
+							"style":"warning"
+						}
+					}, {
+						"bit": 8,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "IMBALANCED LOAD [ TECH SECONDARY ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 24,
+							"name": "IMBALANCED LOAD [ TECH SECONDARY ]",
+							"style":"warning"
+						}
+					}, {
+						"bit": 9,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "SET BREAKER LIMIT REACHED  [ TECH MAIN BREAKER ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}, {
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error",
+							"eventTag": ["tech power"]
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 25,
+							"name": "SET BREAKER LIMIT REACHED  [ TECH MAIN BREAKER ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 10,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "SET BREAKER LIMIT REACHED  [ HVAC MAIN BREAKER ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}, {
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error",
+							"eventTag": ["hvac power"]
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 26,
+							"name": "SET BREAKER LIMIT REACHED  [ HVAC MAIN BREAKER ]",
+							"style":"error"
+						}
+					}, {
+						"bit": 11,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "SURGE SUPPRESSOR  [ OFF ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 27,
+							"name": "SURGE SUPPRESSOR  [ OFF ]",
+							"style":"warning"
+						}
+					}, {
+						"bit": 12,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "POWER SYSTEM HIGH TEMP [ EXTERNAL ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+								"type": "notification",
+								"readingsValue":"rawValue",
+								"comparison": "equal",
+								"value": 1,
+								"clearDuration": 600000,
+								"level":"warning"
+							},
+							{
+								"type": "email",
+								"readingsValue":"rawValue",
+								"comparison": "equal",
+								"value": 1,
+								"clearDuration": 600000,
+								"level":"warning",
+								"eventTag": ["power temp"]
+							}],
+							"VIEW": {
+								"group": "alarm",
+								"displayOrder": 28,
+								"name": "POWER SYSTEM HIGH TEMP [ EXTERNAL ]",
+								"style":"warning"
+							}
+					}, {
+						"bit": 13,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "POWER SYSTEM HIGH TEMP [ INTERNAL ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+								"type": "notification",
+								"readingsValue":"rawValue",
+								"comparison": "equal",
+								"value": 1,
+								"clearDuration": 600000,
+								"level":"warning"
+							},
+							{
+								"type": "email",
+								"readingsValue":"rawValue",
+								"comparison": "equal",
+								"value": 1,
+								"clearDuration": 600000,
+								"eventTag": ["power temp"]
+							}],
+							"VIEW": {
+								"group": "alarm",
+								"displayOrder": 29,
+								"name": "POWER SYSTEM HIGH TEMP [ INTERNAL ]",
+								"style":"warning"
+							}
+					}, {
+						"bit": 14,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "SHUNT TRIP FAILURE [ TECH ] - CONTACT THE SHOP ASAP!",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						},{
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 30,
+							"name": "SHUNT TRIP FAILURE [ TECH ] - CONTACT THE SHOP ASAP!",
+							"style":"error"
+						}
+					}, {
+						"bit": 15,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "SHUNT TRIP FAILURE [ HVAC ] - CONTACT THE SHOP ASAP!",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						},{
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 31,
+							"name": "SHUNT TRIP FAILURE [ HVAC ] - CONTACT THE SHOP ASAP!",
+							"style":"error"
+						}
+					}, {
+						"bit": 16,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "POWER SYSTEM EXHAUST DOOR [ CLOSED ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 32,
+							"name": "POWER SYSTEM EXHAUST DOOR [ CLOSED ]",
+							"style":"warning"
+						}
+					}]
+				}
+			}, {
+				"PLC": {
+					"name": "Alarm3",
+					"register": 1069,
+					"tag": ["alarm"],
+					"binary": [{
+						"bit": 1,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "BACK-UP ACM CONFIG SENT [ TECH ACM ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 33,
+							"name": "BACK-UP ACM CONFIG SENT [ TECH ACM ]",
+							"style":"warning"
+						}
+					}, {
+						"bit": 2,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "BACK-UP ACM CONFIG SENT [ HVAC ACM ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 34,
+							"name": "BACK-UP ACM CONFIG SENT [ HVAC ACM ]",
+							"style":"warning"
+						}
+					}, {
+						"bit": 5,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "RCX OFFLINE",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 37,
+							"name": "RCX OFFLINE",
+							"style":"warning"
+						}
+					}, {
+						"bit": 6,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH 24VDC POWER SUPPLY FAILURE (DCPS-2)",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 38,
+							"name": "TECH 24VDC POWER SUPPLY FAILURE (DCPS-2)",
+							"style":"warning"
+						}
+					}, {
+						"bit": 7,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "TECH 24VDC ORING REDUNDENCY FAILURE",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 39,
+							"name": "TECH 24VDC ORING REDUNDENCY FAILURE",
+							"style":"warning"
+						}
+					}, {
+						"bit": 8,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "BATTERY BACKUP 24VDC FAILURE (DCPS-3)",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 40,
+							"name": "BATTERY BACKUP 24VDC FAILURE (DCPS-3)",
+							"style":"warning"
+						}
+					}, {
+						"bit": 9,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "EMERGENCY KILLSWITCH ACTIVATION",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"error"
+						},{
+							"type": "email",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"eventTag":["tech power"]
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 41,
+							"name": "EMERGENCY KILLSWITCH ACTIVATION",
+							"style":"error"
+						}
+					}, {
+						"bit": 10,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC 24VDC POWER SUPPLY FAILURE (DCPS-1)",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 42,
+							"name": "HVAC 24VDC POWER SUPPLY FAILURE (DCPS-1)",
+							"style":"warning"
+						}
+					}, {
+						"bit": 11,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC 24VDC ORING REDUNDENCY FAILURE",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 43,
+							"name": "HVAC 24VDC ORING REDUNDENCY FAILURE",
+							"style":"warning"
+						}
+					}, {
+						"bit": 12,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "RCX LOGGING STOPPED",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000,
+							"level":"warning"
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 44,
+							"name": "RCX LOGGING STOPPED",
+							"style":"warning"
+						}
+					}]
+				}
+			}, {
+				"PLC": {
+					"name": "OCS_RTD_Input_3",
+					"register": 1070,
+					"tag": ["temp sensor"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "tempSensors",
+					"displayOrder": 37,
+					"name": "Enviro Alert",
+					"style": "infoBox A-Phase",
+					"rule":{
+						"value": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 100,
+							"css": {
+							  "color": "orange",
+							  "font-size": "30px"
+							}
+						  }
+						],
+						"box": [
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "lessThan",
+							"value": 50,
+							"css": {
+							  "background-color": "rgba(0, 147, 216, 0.4)"
+							}
+						  },
+						  {
+							"readingsValue": "mathValue",
+							"comparison": "graterThanOrEqual",
+							"value": 105,
+							"css": {
+							  "background-color": "rgba(216, 43, 0, 0.4)"
+							}
+						  }
+						]
+					  }
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}],
+				"TREND": true
+			}
+		]
+	}, {
+		"name": "X5",
+		"host": "10.212.10.209",
+		"port": 502,
+		"socketTimeout": 4000,
+		"onEndTimeout": 1000,
+		"onErrorTimeout": 3000,
+		"requestInterval": 1000,
+		"modbusCommand": "readHoldingRegisters",
+		"regOffset": 3000,
+		"zeroBase": true,
+		"registers": [{
+				"PLC": {
+					"name": "R1 - sys1_set_temp",
+					"register": 1,
+					"tag": ["thermostat","curb side", "set temp"]
+					
+				},
+				"VIEW": {
+					"group": "thermostatSetTemp",
+					"displayOrder": 1,
+					"name": "Curb Side",
+					"style": "boxvalue nospacing"
+
+				},
+				"MASK": [{
+					"comparison": "absolute",
+					"value": 0,
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "R2 - sys2_set_temp",
+					"register": 2,
+					"tag": ["thermostat","street side", "set temp"]
+				},
+				"VIEW": {
+					"group": "thermostatSetTemp",
+					"displayOrder": 2,
+					"name": "Street Side",
+					"style": "boxvalue nospacing"
+
+				},
+				"MASK": [{
+					"comparison": "absolute",
+					"value": 0,
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "R3 - calculated_temp",
+					"register": 3,
+					"tag": ["thermostat","average temperature","temperature"]
+				},
+				"VIEW": {
+					"group": "thermostatAvgTemp",
+					"displayOrder": 1,
+					"name": "Average Temperature",
+					"style": "boxvalue thermostatvalue"
+				},
+				"MASK": [{
+					"comparison": "absolute",
+					"value": 0,
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "R4 - mode",
+					"register": 4,
+					"tag": ["thermostat","thermostat mode"]
+				},
+				"VIEW": {
+					"group": "thermostatMode",
+					"displayOrder": 1,
+					"name": "mode",
+					"style": "thermostatmode"
+				},
+				"MASK": [{
+					"comparison": "equal",
+					"value": 0,
+					"trueValue": "VENT",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 1,
+					"trueValue": "COOL",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 2,
+					"trueValue": "HEAT",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 3,
+					"trueValue": "SYSTEM OFF",
+					"action": "replace"
+				}]
+			},{
+				"PLC": {
+					"name": "R5 - sys1 Status",
+					"register": 5,
+					"tag": ["thermostat"]
+				},
+				"VIEW": {
+					"group": "thermostatCompressor",
+					"displayOrder": 1,
+					"name": "Compressor-1",
+					"icon": "1"
+				},
+				"MASK": [{
+					"comparison": "equal",
+					"value": 0,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 1,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 19,
+					"trueValue": "ON / Buffer Down State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 33,
+					"trueValue": "OFF / Buffer On State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 49,
+					"trueValue": "ON",
+					"action": "replace"
+				}]
+			},{
+				"PLC": {
+					"name": "R6 - sys2 Status",
+					"register": 6,
+					"tag": ["thermostat"]
+				},
+				"VIEW": {
+					"group": "thermostatCompressor",
+					"displayOrder": 2,
+					"name": "Compressor-2",
+					"icon": "2"
+				},
+				"MASK": [{
+					"comparison": "equal",
+					"value": 0,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 1,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 19,
+					"trueValue": "ON / Buffer Down State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 33,
+					"trueValue": "OFF / Buffer On State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 49,
+					"trueValue": "ON",
+					"action": "replace"
+				}]
+			},{
+				"PLC": {
+					"name": "R7 - sys3 Status",
+					"register": 7,
+					"tag": ["thermostat"]
+				},
+				"VIEW": {
+					"group": "thermostatCompressor",
+					"displayOrder": 3,
+					"name": "Compressor-3",
+					"icon": "3"
+				},
+				"MASK": [{
+					"comparison": "equal",
+					"value": 0,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 1,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 19,
+					"trueValue": "ON / Buffer Down State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 33,
+					"trueValue": "OFF / Buffer On State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 49,
+					"trueValue": "ON",
+					"action": "replace"
+				}]
+			},{
+				"PLC": {
+					"name": "R8 - sys4 Status",
+					"register": 8,
+					"tag": ["thermostat"]
+				},
+				"VIEW": {
+					"group": "thermostatCompressor",
+					"displayOrder": 4,
+					"name": "Compressor-4",
+					"icon": "4"
+				},
+				"MASK": [{
+					"comparison": "equal",
+					"value": 0,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 1,
+					"trueValue": "OFF",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 19,
+					"trueValue": "ON / Buffer Down State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 33,
+					"trueValue": "OFF / Buffer On State",
+					"action": "replace"
+				}, {
+					"comparison": "equal",
+					"value": 49,
+					"trueValue": "ON",
+					"action": "replace"
+				}]
+			},{
+				"PLC": {
+					"name": "R9 - Thermostate Alarms",
+					"register": 9,
+					"tag": ["alarm"],
+					"binary": [{
+						"bit": 1,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "LOSS OF CAN COMMUNICATION [ NSITE ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 45,
+							"name": "LOSS OF CAN COMMUNICATION [ NSITE ]",
+							"style":"error"
+						}
+					},{
+						"bit": 2,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "LOSS OF CAN COMMUNICATION [ HVAC ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 46,
+							"name": "LOSS OF CAN COMMUNICATION [ HVAC ]",
+							"style":"error"
+						}
+					},{
+						"bit": 3,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "NSITE SMARTRAIL ERROR",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 47,
+							"name": "NSITE SMARTRAIL ERROR",
+							"style":"error"
+						}
+					},{
+						"bit": 4,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "ERROR [ SENSOR 1 ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 48,
+							"name": "ERROR [ SENSOR 1 ]",
+							"style":"warning"
+						}
+					},{
+						"bit": 5,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "ERROR [ SENSOR 2 ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 49,
+							"name": "ERROR [ SENSOR 2 ]",
+							"style":"warning"
+						}
+					},{
+						"bit": 6,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "ERROR [ SENSOR 3 ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 50,
+							"name": "ERROR [ SENSOR 3 ]",
+							"style":"warning"
+						}
+					},{
+						"bit": 7,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "ERROR [ SENSOR 4 ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 51,
+							"name": "ERROR [ SENSOR 4 ]",
+							"style":"warning"
+						}
+					},{
+						"bit": 8,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "SENSOR ERROR [ HVAC RETURN ]",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 52,
+							"name": "SENSOR ERROR [ HVAC RETURN ]",
+							"style":"warning"
+						}
+					}]
+				}
+			}]
+	}, {
+		"name": "HVAC",
+		"host": "10.212.10.221",
+		"port": 502,
+		"socketTimeout": 4000,
+		"onEndTimeout": 1000,
+		"onErrorTimeout": 3000,
+		"requestInterval": 1000,
+		"modbusCommand": "readHoldingRegisters",
+		"regOffset": 3000,
+		"zeroBase": true,
+		"registers": [{
+				"PLC": {
+					"name": "HVAC Alarms",
+					"register": 500,
+					"tag": ["alarm"],
+					"binary": [{
+						"bit": 1,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC SYSTEM-1 ERROR",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 53,
+							"name": "HVAC SYSTEM-1 ERROR",
+							"style": "warning"
+						}
+					},{
+						"bit": 2,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC SYSTEM-2 ERROR",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 53,
+							"name": "HVAC SYSTEM-2 ERROR",
+							"style": "warning"
+						}
+					},{
+						"bit": 3,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC SYSTEM-3 ERROR",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 53,
+							"name": "HVAC SYSTEM-3 ERROR",
+							"style": "warning"
+						}
+					},{
+						"bit": 4,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "HVAC SYSTEM-4 ERROR",
+							"action": "replace"
+						}],
+						"EVENTS": [{
+							"type": "notification",
+							"readingsValue":"rawValue",
+							"comparison": "equal",
+							"value": 1,
+							"clearDuration": 600000
+						}],
+						"VIEW": {
+							"group": "alarm",
+							"displayOrder": 53,
+							"name": "HVAC SYSTEM-4 ERROR",
+							"style": "warning"
+						}
+					}]
+				}
+				
+			}, {
+				"PLC": {
+					"name": "Return Air",
+					"register": 501,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvac",
+					"displayOrder": 1,
+					"name": "Return"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Curb Side Air",
+					"register": 502,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvac",
+					"displayOrder": 2,
+					"name": "CS Supply"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Sys-1 Suction",
+					"register": 503,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem1",
+					"displayOrder": 4,
+					"name": "Suction",
+					"alias":"System 1 Suction"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Sys-2 Suction",
+					"register": 504,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem2",
+					"displayOrder": 4,
+					"name": "Suction",
+					"alias":"System 2 Suction"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Street Side Air",
+					"register": 505,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvac",
+					"displayOrder": 3,
+					"name": "SS Supply"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Ambient Air",
+					"register": 506,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvac",
+					"displayOrder": 4,
+					"name": "Ambient"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Sys-3 Suction",
+					"register": 507,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem3",
+					"displayOrder": 4,
+					"name": "Suction",
+					"alias":"HVAC System 3 Suction"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Sys-4 Suction",
+					"register": 508,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem4",
+					"displayOrder": 4,
+					"name": "Suction",
+					"alias":"HVAC System 4 Suction"
+				},
+				"MASK": [{
+					"value": 0,
+					"comparison": "absolute",
+					"trueValue": "°",
+					"action": "after"
+				}]
+			}, {
+				"PLC": {
+					"name": "Sys-1 High Pressure",
+					"register": 509,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem1",
+					"displayOrder": 3,
+					"name": "High",
+					"alias":"HVAC System 1 High Pressure"
+				}
+			}, {
+				"PLC": {
+					"name": "Sys-1 Low Pressure",
+					"register": 510,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem1",
+					"displayOrder": 2,
+					"name": "Low",
+					"alias":"HVAC System 1 Low Pressure"
+				}
+			}, {
+				"PLC": {
+					"name": "Sys-2 High Pressure",
+					"register": 511,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem2",
+					"displayOrder": 3,
+					"name": "High",
+					"alias":"HVAC System 2 High Pressure"
+				}
+			}, {
+				"PLC": {
+					"name": "Sys-2 Low Pressure",
+					"register": 512,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem2",
+					"displayOrder": 2,
+					"name": "Low",
+					"alias":"HVAC System 2 Low Pressure"
+				}
+			}, {
+				"PLC": {
+					"name": "Sys-3 High Pressure",
+					"register": 513,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem3",
+					"displayOrder": 3,
+					"name": "High",
+					"alias":"HVAC System 3 High Pressure"
+				}
+			}, {
+				"PLC": {
+					"name": "Sys-3 Low Pressure",
+					"register": 514,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem3",
+					"displayOrder": 2,
+					"name": "Low",
+					"alias":"HVAC System 3 Low Pressure"
+				}
+			}, {
+				"PLC": {
+					"name": "Sys-4 High Pressure",
+					"register": 515,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem4",
+					"displayOrder": 3,
+					"name": "High",
+					"alias":"HVAC System 4 High Pressure"
+				}
+			}, {
+				"PLC": {
+					"name": "Sys-4 Low Pressure",
+					"register": 516,
+					"tag": ["HVAC"],
+					"math": {
+						"operation": "divide",
+						"value": 10
+					}
+				},
+				"VIEW": {
+					"group": "hvacSystem4",
+					"displayOrder": 2,
+					"name": "Low",
+					"alias":"HVAC System 4 Low Pressure"
+				}
+			},{
+				"PLC": {
+					"name": "HVAC Compressors",
+					"register": 517,
+					"tag": ["hvac"],
+					"binary": [{
+						"bit": 1,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "EN",
+							"action": "replace"
+						},{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "-",
+							"action": "replace"
+						}],
+						"VIEW": {
+							"group": "hvacSystem1",
+							"displayOrder": 5,
+							"name": "Comp.",
+							"alias":"HVAC System 1 Compressor"
+						}
+					},{
+						"bit": 2,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "EN",
+							"action": "replace"
+						},{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "-",
+							"action": "replace"
+						}],
+						"VIEW": {
+							"group": "hvacSystem2",
+							"displayOrder": 5,
+							"name": "Comp.",
+							"alias":"HVAC System 2 Compressor"
+						}
+					},{
+						"bit": 3,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "EN",
+							"action": "replace"
+						},{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "-",
+							"action": "replace"
+						}],
+						"VIEW": {
+							"group": "hvacSystem3",
+							"displayOrder": 5,
+							"name": "Comp.",
+							"alias":"HVAC System 3 Compressor"
+						}
+					},{
+						"bit": 4,
+						"MASK": [{
+							"value": 1,
+							"comparison": "equal",
+							"trueValue": "EN",
+							"action": "replace"
+						},{
+							"value": 0,
+							"comparison": "equal",
+							"trueValue": "-",
+							"action": "replace"
+						}],
+						"VIEW": {
+							"group": "hvacSystem4",
+							"displayOrder": 5,
+							"name": "Comp.",
+							"alias":"HVAC System 4 Compressor"
+						}
+					}]
+				}
+			}
+		]
+	}]
+}
